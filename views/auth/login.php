@@ -32,6 +32,17 @@
             letter-spacing: 0.4px;
             margin-top: 20px;
         }
+        .ip{
+            border: none;
+            border-bottom: solid 1px gray;
+            opacity: 60%;
+            box-shadow: none;
+        }
+        .ip:focus {
+            box-shadow: none;
+            opacity: 100%;
+            border-color: gray;
+        }
     </style>
     <div class="container position-relative parent">
         <div class="row justify-content-center ">
@@ -44,10 +55,10 @@
                                 <h4>Sign In To CRUD</h4>
                             </div>
                             <label for="user" class="mb-1">Username</label>
-                            <input type="text" autocomplete="off" name="username" placeholder="Masukkan Username" id="user" class="form-control mb-3">
+                            <input type="text" autocomplete="off" name="username" placeholder="Masukkan Username" id="user" class="form-control mb-3 ip">
 
                             <label class="mb-1" for="pw">Password</label>
-                            <input type="password" name="password" autocomplete="off" placeholder="Masukkan Password" id="pw" class="form-control">
+                            <input type="password" name="password" autocomplete="off" placeholder="Masukkan Password" id="pw" class="form-control ip">
 
                             <div class="text-end">
                                 <a href="" class="text-decoration-none"></a>
