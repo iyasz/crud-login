@@ -1,17 +1,21 @@
 <?php
 include "../../app/db.php";
 
-$username = htmlspecialchars($_POST['username']);
-$password = htmlspecialchars($_POST['password']);
-$checkUser = $conn->query("SELECT * FROM tbl_admin where username = '$username'");
-$checkPassword = $conn->query("SELECT * FROM tbl_admin where password = '$password'");
 
-if (mysqli_num_rows($checkUser) <= 0) {
-    echo "<script>alert('Username Tidak Terdaftar');</script>";
-    if (mysqli_num_rows($checkPassword) <= 0) {
-        echo "<script>alert('Password anda salah');</script>";
-    }else {
-        header('location: ../../index.php');
+if (isset($_POST['submit'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
+    $checkUser = $conn->query("SELECT * FROM tbl_admin where username = '$username'");
+    $checkPassword = $conn->query("SELECT * FROM tbl_admin where password = '$password'");
+
+    if (mysqli_num_rows($checkUser) <= 0) {
+        echo "<script>alert('Username Tidak Terdaftar');</script>";
+    } else {
+        if (mysqli_num_rows($checkPassword) <= 0) {
+            echo "<script>alert('Password anda salah');</script>";
+        }else{
+            header('location: ../../index.php');
+        }
     }
 }
 
@@ -94,7 +98,6 @@ if (mysqli_num_rows($checkUser) <= 0) {
                             <div class="footer mt-4 text-center">
                                 <button class="btn btn-primary sbt" name="submit" type="submit">Masuk</button>
                                 <p>Don't have an account? <a class="text-decoration-none" href="register.php">Register</a> </p>
-                                <br>
                             </div>
                         </form>
                     </div>
