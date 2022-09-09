@@ -49,6 +49,10 @@
                             <label class="mb-1" for="pw">Password</label>
                             <input type="password" name="password" autocomplete="off" placeholder="Masukkan Password" id="pw" class="form-control">
 
+                            <div class="text-end">
+                                <a href="" class="text-decoration-none"></a>
+                            </div>
+
                             <div class="footer mt-4 text-center">
                                 <button class="btn btn-primary sbt" name="submit" type="submit">Masuk</button>
                                 <p>Don't have an account? <a class="text-decoration-none" href="register.php">Register</a> </p>
