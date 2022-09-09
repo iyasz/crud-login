@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,33 +10,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login - Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../app/function.php">
   </head>
   <body>
     <style>
         .parent {
             position: relative;
-            top: 130px;
+            top: 80px;
+        }
+        .header h4{
+            font-weight: lighter;
+            font-size: 27px;
+            letter-spacing: 0.8px;
+        }
+        .sbt {
+            padding: 5px 130px;
+            border-radius: 0;
+        }
+        .footer p {
+            font-size: 13px;
+            letter-spacing: 0.4px;
+            margin-top: 20px;
         }
     </style>
     <div class="container position-relative parent">
         <div class="row justify-content-center ">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <form action="" method="post">
                             <div class="header mb-4 text-center">
-                                <img src="" alt="">
+                                <img src="../../assets/img/loginic.svg" class="mt-4 mb-4" width="90px" alt="">
                                 <h4>Sign In To CRUD</h4>
                             </div>
-                            <label for="user">Username</label>
-                            <input type="text" name="username" placeholder="Masukkan Username" id="user" class="form-control mb-3">
+                            <label for="user" class="mb-1">Username</label>
+                            <input type="text" autocomplete="off" name="username" placeholder="Masukkan Username" id="user" class="form-control mb-3">
 
-                            <label for="pw">Password</label>
-                            <input type="password" name="pw" placeholder="Masukkan Password" id="pw" class="form-control">
+                            <label class="mb-1" for="pw">Password</label>
+                            <input type="password" name="password" autocomplete="off" placeholder="Masukkan Password" id="pw" class="form-control">
 
-                            <div class="footer mt-3">
-                                <button class="btn btn-primary">Masuk</button>
-                                <button class="btn btn-danger" type="reset">Reset</button>
+                            <div class="footer mt-4 text-center">
+                                <button class="btn btn-primary sbt" name="submit" type="submit">Masuk</button>
+                                <p>Don't have an account? <a class="text-decoration-none" href="register.php">Register</a> </p>
+                                <br>
                             </div>
                         </form>
                     </div>
