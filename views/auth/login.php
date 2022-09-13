@@ -67,6 +67,7 @@ if (isset($_POST['submit'])) {
 
         .ip {
             border: none;
+            border-radius: 0;
             border-bottom: solid 1px gray;
             opacity: 60%;
             box-shadow: none;
@@ -120,24 +121,16 @@ if (isset($_POST['submit'])) {
         //     'success'
         // )
     </script>
-
-    <script>
-        function anime() {
-            // swal("Good job!", "Kamu Berhasil Login!", "success")
-        }
-
-        function kanjut() {
-            // swal("Good job!", "You clicked the button!", "success");
-        }
-    </script>
+    
     <?php
     if (isset($swal)) {
         echo "<script>
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            )
+        Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 2000
+          })
             </script>";
     }
     ?>
