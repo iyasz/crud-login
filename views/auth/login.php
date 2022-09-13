@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
             $swal = 1;
             echo '<script>
                 setInterval(function () {
-                    window.location.href=""
+                    window.location.href="index.php?page=register"
                 }, 2000);
             </script>';
         }
