@@ -121,13 +121,13 @@ if (isset($_POST['submit'])) {
         //     'success'
         // )
     </script>
-    
+
     <?php
     if (isset($swal)) {
         echo "<script>
         Swal.fire({
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Anda Telah Berhasil Login',
             showConfirmButton: false,
             timer: 2000
           })
