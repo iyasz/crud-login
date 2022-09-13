@@ -15,7 +15,11 @@ if (isset($_POST['submit'])) {
             echo "<script>alert('Password anda salah');</script>";
         } else {
             $swal = 1;
-            // header('location: ../../index.php');
+            echo '<script>
+                setInterval(function () {
+                    window.location.href="../../index.php"
+                }, 2000);
+            </script>';
         }
     }
 }
@@ -31,8 +35,9 @@ if (isset($_POST['submit'])) {
     <title>Login - Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -98,9 +103,8 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <div class="footer mt-4 text-center">
-                                <button class="btn btn-primary sbt" onclick="kanjut()" name="submit" type="submit">Masuk</button>
+                                <button class="btn btn-primary sbt" name="submit" type="submit">Masuk</button>
                                 <p>Don't have an account? <a class="text-decoration-none" href="register.php">Register</a> </p>
-                                <button onclick="anime()">tes</button>
                             </div>
                         </form>
                     </div>
@@ -108,26 +112,39 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </div>
+
+    <script>
+        // Swal.fire(
+        //     'Good job!',
+        //     'You clicked the button!',
+        //     'success'
+        // )
+    </script>
+
     <script>
         function anime() {
-            swal("Good job!", "Kamu Berhasil Login!", "success")
+            // swal("Good job!", "Kamu Berhasil Login!", "success")
         }
 
         function kanjut() {
-            swal("Good job!", "Kamu Berhasil Login!", "success")
+            // swal("Good job!", "You clicked the button!", "success");
         }
     </script>
     <?php
     if (isset($swal)) {
-        echo "<script>kanjut()</script>";
+        echo "<script>
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+            )
+            </script>";
     }
     ?>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js%22%3E</script>
 
 </body>
 
