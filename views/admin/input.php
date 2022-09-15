@@ -23,6 +23,16 @@ if(isset($_POST['submit'])){
           })</script>";
     }
 }
+if(isset($_POST['delete'])){
+    $id = htmlspecialchars($_POST['id']);
+    $delete = $conn->query("DELETE FROM anggota WHERE id = '$id'");
+    if($delete){
+        echo "<script>alert('Data Berhasil Di hapus');</script>";
+        echo "<script>location.replace('');</script>";
+    } else{
+        echo "<script>alert('Data Gagal Di hapus');</script>";
+    }
+}
 
 ?>
 
@@ -84,7 +94,7 @@ if(isset($_POST['submit'])){
                                     <th>Username</th>
                                     <th>No. Telp</th>
                                     <th>Alamat</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,11 +106,11 @@ if(isset($_POST['submit'])){
                                     <td> <?= $selects['username'] ?> </td>
                                     <td> <?= $selects['telepon'] ?> </td>
                                     <td> <?= $selects['nama'] ?> </td>
-                                    <td class="text-center">
+                                    <td class=" d-flex gap-1 justify-content-center">
                                         <a href="" class="btn btn-primary btn-sm">Edit</a>
                                         <form action="" method="post">
-                                            <input type="hidden" name="id" value="<?= $select['id'] ?>">
-                                            <button class="btn btn-danger btn-sm"></button>
+                                            <input type="hidden" name="id" value="<?= $selects['id'] ?>">
+                                            <button type="submit" name="delete" class="btn btn-danger btn-sm">delete</button>
                                         </form>
                                     </td>
                                 </tr>
