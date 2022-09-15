@@ -1,5 +1,9 @@
 <?php
 
+$conn = mysqli_connect('localhost', 'root', '', 'crudlog');
+
+$select = $conn->query("SELECT * FROM ");
+
 ?>
 
 <!doctype html>
@@ -38,10 +42,6 @@
                                 <label for="alamat">Alamat</label>
                                 <input type="text" name="alamat" placeholder="" class="form-control" id="alamat">
                             </div>
-                            <div class="mb-3">
-                                <label for="pw">Password</label>
-                                <input type="text" name="password" placeholder="" class="form-control" id="pw">
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -54,11 +54,21 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>#</th>
+                                    <th>Nama</th>
+                                    <th>Username</th>
+                                    <th>No. Telp</th>
+                                    <th>Alamat</th>
+                                    <th>Passwordd</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                 </tr>
                             </tbody>
