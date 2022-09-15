@@ -17,7 +17,7 @@ $select = $conn->query("SELECT * FROM anggota");
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow">
@@ -41,6 +41,10 @@ $select = $conn->query("SELECT * FROM anggota");
                             <div class="mb-3">
                                 <label for="alamat">Alamat</label>
                                 <input type="text" name="alamat" placeholder="" class="form-control" id="alamat">
+                            </div>
+                            <div class="footer">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-danger" type="reset">Reset</button>
                             </div>
                         </form>
                     </div>
