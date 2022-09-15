@@ -47,9 +47,9 @@ $select = $conn->query("SELECT * FROM anggota");
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <div class="card">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-10">
+                <div class="card shadow">
                     <div class="card-body">
                         <table class="table table-hover">
                             <thead>
@@ -59,19 +59,22 @@ $select = $conn->query("SELECT * FROM anggota");
                                     <th>Username</th>
                                     <th>No. Telp</th>
                                     <th>Alamat</th>
-                                    <th>Passwordd</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1;
                                 foreach($select as $selects) { ?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td> <?= $no++ ?> </td>
+                                    <td> <?= $selects['nama'] ?> </td>
+                                    <td> <?= $selects['usernae'] ?> </td>
+                                    <td> <?= $selects['telepon'] ?> </td>
+                                    <td> <?= $selects['nama'] ?> </td>
+                                    <td class="text-center">
+                                        <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
