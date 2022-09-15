@@ -2,7 +2,7 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'crudlog');
 
-$select = $conn->query("SELECT * FROM ");
+$select = $conn->query("SELECT * FROM anggota");
 
 ?>
 
@@ -63,6 +63,8 @@ $select = $conn->query("SELECT * FROM ");
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $no = 1;
+                                foreach($select as $selects) { ?>
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -71,6 +73,7 @@ $select = $conn->query("SELECT * FROM ");
                                     <td></td>
                                     <td></td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
