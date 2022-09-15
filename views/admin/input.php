@@ -6,11 +6,11 @@ $select = $conn->query("SELECT * FROM anggota");
 
 if(isset($_POST['submit'])){
     $nama = htmlspecialchars($_POST['nama']);
-    $usename = htmlspecialchars($_POST['username']);
+    $username = htmlspecialchars($_POST['username']);
     $telepon = htmlspecialchars($_POST['telepon']);
     $alamat = htmlspecialchars($_POST['alamat']);
 
-    $simpan = $conn->query("INSERT INTO anggota VALUES  (NULL, '$nama', '$usename', '$telepon', '$alamat')");
+    $simpan = $conn->query("INSERT INTO anggota VALUES  (NULL, '$nama', '$username', '$telepon', '$alamat')");
     if($simpan){
         echo "<script>location.replace('');</script>";
     } else {
@@ -105,7 +105,7 @@ if(isset($_POST['delete'])){
                                     <td> <?= $selects['nama'] ?> </td>
                                     <td> <?= $selects['username'] ?> </td>
                                     <td> <?= $selects['telepon'] ?> </td>
-                                    <td> <?= $selects['nama'] ?> </td>
+                                    <td> <?= $selects['alamat'] ?> </td>
                                     <td class=" d-flex gap-1 justify-content-center">
                                         <a href="edit.php?id=<?= $selects['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
                                         <form action="" method="post">
