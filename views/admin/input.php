@@ -4,14 +4,14 @@ $conn = mysqli_connect('localhost', 'root', '', 'crudlog');
 
 $select = $conn->query("SELECT * FROM anggota");
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $nama = htmlspecialchars($_POST['nama']);
     $username = htmlspecialchars($_POST['username']);
     $telepon = htmlspecialchars($_POST['telepon']);
     $alamat = htmlspecialchars($_POST['alamat']);
 
     $simpan = $conn->query("INSERT INTO anggota VALUES  (NULL, '$nama', '$username', '$telepon', '$alamat')");
-    if($simpan){
+    if ($simpan) {
         $swal = 1;
         echo '<script>
                 setInterval(function () {
@@ -29,13 +29,17 @@ if(isset($_POST['submit'])){
           })</script>";
     }
 }
-if(isset($_POST['delete'])){
+if (isset($_POST['delete'])) {
     $id = htmlspecialchars($_POST['id']);
     $delete = $conn->query("DELETE FROM anggota WHERE id = '$id'");
-    if($delete){
-        
-        echo "<script>location.replace('');</script>";
-    } else{
+    if ($delete) {
+        $del = 1;
+        echo '<script>
+                setInterval(function () {
+                    window.location.href="input.php"
+                }, 1000);
+            </script>';
+    } else {
         echo "<script>alert('Data Gagal Di hapus');</script>";
     }
 }
@@ -105,21 +109,21 @@ if(isset($_POST['delete'])){
                             </thead>
                             <tbody>
                                 <?php $no = 1;
-                                foreach($select as $selects) { ?>
-                                <tr>
-                                    <td> <?= $no++ ?> </td>
-                                    <td> <?= $selects['nama'] ?> </td>
-                                    <td> <?= $selects['username'] ?> </td>
-                                    <td> <?= $selects['telepon'] ?> </td>
-                                    <td> <?= $selects['alamat'] ?> </td>
-                                    <td class=" d-flex gap-1 justify-content-center">
-                                        <a href="edit.php?id=<?= $selects['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
-                                        <form action="" method="post">
-                                            <input type="hidden" name="id" value="<?= $selects['id'] ?>">
-                                            <button type="submit" name="delete" class="btn btn-danger btn-sm">delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                foreach ($select as $selects) { ?>
+                                    <tr>
+                                        <td> <?= $no++ ?> </td>
+                                        <td> <?= $selects['nama'] ?> </td>
+                                        <td> <?= $selects['username'] ?> </td>
+                                        <td> <?= $selects['telepon'] ?> </td>
+                                        <td> <?= $selects['alamat'] ?> </td>
+                                        <td class=" d-flex gap-1 justify-content-center">
+                                            <a href="edit.php?id=<?= $selects['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
+                                            <form action="" method="post">
+                                                <input type="hidden" name="id" value="<?= $selects['id'] ?>">
+                                                <button type="submit" name="delete" class="btn btn-danger btn-sm">delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
@@ -135,6 +139,16 @@ if(isset($_POST['delete'])){
         Swal.fire({
             icon: 'success',
             title: 'Berhasil Menyimpan Data',
+            showConfirmButton: false,
+            timer: 1500
+          })
+            </script>";
+    }
+    if (isset($del)) {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil Menghapus Data',
             showConfirmButton: false,
             timer: 1500
           })
