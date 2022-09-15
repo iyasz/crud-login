@@ -12,7 +12,13 @@ if(isset($_POST['submit'])){
 
     $simpan = $conn->query("INSERT INTO anggota VALUES  (NULL, '$nama', '$username', '$telepon', '$alamat')");
     if($simpan){
-        echo "<script>location.replace('');</script>";
+        $swal = 1;
+        echo '<script>
+                setInterval(function () {
+                    window.location.href="input.php"
+                }, 1000);
+            </script>';
+        // echo "<script>location.replace('');</script>";
     } else {
         echo "<script>Swal.fire({
             position: 'top-end',
@@ -27,7 +33,7 @@ if(isset($_POST['delete'])){
     $id = htmlspecialchars($_POST['id']);
     $delete = $conn->query("DELETE FROM anggota WHERE id = '$id'");
     if($delete){
-        echo "<script>alert('Data Berhasil Di hapus');</script>";
+        
         echo "<script>location.replace('');</script>";
     } else{
         echo "<script>alert('Data Gagal Di hapus');</script>";
@@ -123,6 +129,19 @@ if(isset($_POST['delete'])){
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <?php
+    if (isset($swal)) {
+        echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil Menyimpan Data',
+            showConfirmButton: false,
+            timer: 1500
+          })
+            </script>";
+    }
+    ?>
+
 </body>
 
 </html>
