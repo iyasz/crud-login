@@ -12,14 +12,7 @@ if(isset($_POST['submit'])){
 
     $simpan = $conn->query("INSERT INTO anggota VALUES  (NULL, '$nama', '$usename', '$telepon', '$alamat')");
     if($simpan){
-        echo "<script>Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          })</script>";
-          header('location: index.php');
+        echo "<script>location.replace('');</script>";
     } else {
         echo "<script>Swal.fire({
             position: 'top-end',
@@ -56,19 +49,19 @@ if(isset($_POST['submit'])){
                             </div>
                             <div class="mb-3">
                                 <label for="nama">Nama</label>
-                                <input type="text" required name="nama" placeholder="" class="form-control" id="nama">
+                                <input autocomplete="off" type="text" required name="nama" placeholder="" class="form-control" id="nama">
                             </div>
                             <div class="mb-3">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" required placeholder="" class="form-control" id="username">
+                                <input type="text" autocomplete="off" name="username" required placeholder="" class="form-control" id="username">
                             </div>
                             <div class="mb-3">
                                 <label for="telp">No Telp</label>
-                                <input type="number" name="telepon" required placeholder="" class="form-control" id="telp">
+                                <input type="number" name="telepon" autocomplete="off" required placeholder="" class="form-control" id="telp">
                             </div>
                             <div class="mb-3">
                                 <label for="alamat">Alamat</label>
-                                <input type="text" name="alamat" required placeholder="" class="form-control" id="alamat">
+                                <input type="text" name="alamat" required autocomplete="off" placeholder="" class="form-control" id="alamat">
                             </div>
                             <div class="footer">
                                 <button class="btn btn-primary" name="submit" type="submit">Submit</button>
@@ -100,12 +93,15 @@ if(isset($_POST['submit'])){
                                 <tr>
                                     <td> <?= $no++ ?> </td>
                                     <td> <?= $selects['nama'] ?> </td>
-                                    <td> <?= $selects['usernaMe'] ?> </td>
+                                    <td> <?= $selects['username'] ?> </td>
                                     <td> <?= $selects['telepon'] ?> </td>
                                     <td> <?= $selects['nama'] ?> </td>
                                     <td class="text-center">
                                         <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id" value="<?= $select['id'] ?>">
+                                            <button class="btn btn-danger btn-sm"></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <?php } ?>
